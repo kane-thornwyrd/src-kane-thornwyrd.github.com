@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+import './stylesheets/bootstrap.css';
 import './stylesheets/main.css';
 
 import Root from './routes';

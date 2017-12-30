@@ -3,6 +3,7 @@ $primary-color: $fg2;
 @import 'loaders.css/src/animations/square-spin.scss'
 
 @import 'common/longshadow.scss'
+@import 'common/bendedShadow.sass'
 
 html
   font-size: 100%
@@ -21,40 +22,32 @@ a
 #root
   background-color: $bg1
 
+.headroom-wrapper
+  margin: 0 15px
+
 .headroom
+  @include bendedShadow()
   & .row
     background-color: $bg2
     position: relative
-    margin: -15px 0
-  &:before, &:after
-    content: '';
-    position: absolute;
-    width: 60%;
-    height: 30px;
-    box-shadow: 0 0 36px rgba(0,0,0,1);
-    transform: rotate(-3deg) skew(-10deg);
-    left: 16px;
-    bottom: 18px;
-    z-index: 0;
-  &:after
-    z-index: -1;
-    transform: rotate(3deg) skew(10deg);
-    left: auto;
-    right: 16px;
   h1
     @include longshadow(rgba(darken($bg2, 15%), .05), 70)
+
+.nav-bar
+  display: flex
+  flex-flow: row wrap
+  margin: 0 1em
+  .headroom--pinned &
+    margin: 0 2em
   .menu-item
-    padding: 1em
-    margin: 1em
-    border: 1px solid $fg2
-    float: left
-    &:hover, &:active, &:focus
-      background-color: $fg2
+    flex-grow: 1
+    text-align: center
+    border-radius: 3px
+    padding: .5em
+    margin: .1em
+    &:hover, &:active, &:focus, &.active
       text-decoration: none
-      color: $bg2
       outline: none
-
-
 
 #viewport
   background-color: $bg2

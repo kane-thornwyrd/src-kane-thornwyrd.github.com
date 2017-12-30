@@ -1,0 +1,18 @@
+
+@mixin bendedShadow()
+  position: relative
+  &:before, &:after
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 30px;
+    box-shadow: 0 0 36px rgba(0,0,0,1);
+    transform: rotate(-3deg) skew(-10deg);
+    left: 16px;
+    bottom: 18px;
+    z-index: 0;
+  &:after
+    z-index: -1;
+    transform: rotate(3deg) skew(10deg);
+    left: auto;
+    right: 16px;

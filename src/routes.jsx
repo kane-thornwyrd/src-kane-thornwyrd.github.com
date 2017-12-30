@@ -1,25 +1,33 @@
 import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
-import { routerReducer as routing, syncHistoryWithStore } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+import { ConnectedRouter, routerReducer as router, routerMiddleware } from 'react-router-redux'
+
+import { Provider } from 'react-redux'
+import { Switch, Route, Router } from 'react-router'
+
+
+import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
+import Button from 'react-bootstrap/lib/Button';
+
 import Loadable from 'react-loadable';
 
 import App from './App';
 import fourOFour from './components/404';
 import LoaderAnimation from './components/loaderAnimation';
 
-const browserHistory = createBrowserHistory();
+const history = createHistory();
+const historyMiddleware = routerMiddleware(history)
 
 const store = createStore(
   combineReducers({
-    routing,
+    router,
   }),
-  applyMiddleware(thunk),
+  applyMiddleware(thunk, historyMiddleware),
 );
-syncHistoryWithStore(browserHistory, store);
 
+addStyle(Button, 'kane-button-1');
 
 // const jobs = [
 //   {
@@ -64,7 +72,7 @@ function loadableFactory(importer){
     timeout: 10000,
     render(loaded, props) {
       const C = loaded.default;
-      return <C {...props} />;
+      return <C {...props} store={store} />;
     }
   });
 }
@@ -73,8 +81,10 @@ const AsyncHome = loadableFactory(() => import("./pages/Home"));
 const AsyncResume = loadableFactory(() => import("./pages/Resume"));
 const AsyncAbout = loadableFactory(() => import("./pages/About"));
 
-export default (props) => (<Router>
-    <App store={store}>
+export default (props) => (
+<Provider store={store}>
+  <Router history={history}>
+    <App>
       <Switch>
         <Route path="/" exact component={AsyncHome} />
         <Route path="/resume" component={AsyncResume} />
@@ -82,4 +92,6 @@ export default (props) => (<Router>
         <Route component={fourOFour} />
       </Switch>
     </App>
-  </Router>);
+  </Router>
+</Provider>
+);
