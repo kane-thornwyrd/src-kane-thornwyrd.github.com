@@ -1,0 +1,11 @@
+@function makelongshadow($color, $length) {
+  $val: 0px 0px $color;
+  @for $i from 1 through $length {
+    $val: #{$val}, 0px #{$i}px 1px #{$color};
+  }
+  @return $val;
+}
+
+@mixin longshadow($color, $length) {
+  text-shadow: makelongshadow($color, $length);
+}
