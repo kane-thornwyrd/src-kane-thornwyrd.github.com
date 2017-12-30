@@ -30,7 +30,6 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
 src/**/*.css
 
 # Dependency directories
@@ -65,9 +64,6 @@ typings/
 
 # testing
 /coverage
-
-# production
-/build
 
 # misc
 .DS_Store
