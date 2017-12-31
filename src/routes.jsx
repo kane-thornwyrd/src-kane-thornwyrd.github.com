@@ -17,8 +17,13 @@ import App from './App';
 import fourOFour from './pages/404';
 
 const history = createHistory();
+
+
+
+
 const historyMiddleware = routerMiddleware(history)
 
+/*
 const resume = [
   {
     title: 'Drupal Expert',
@@ -52,6 +57,7 @@ Technologies: Botkit Elasticsearch ES 6/7 Express MongoDB Node.js RabbitMQ React
     </div>)
   },
 ];
+*/
 
 const store = createStore(
   combineReducers({
@@ -69,16 +75,16 @@ const AsyncResume = loadableFactory({importer: () => import("./pages/Resume"), s
 const AsyncAbout = loadableFactory({importer: () => import("./pages/About"), store});
 
 export default (props) => (
-<Provider store={store}>
-  <Router history={history}>
-    <App>
-      <Switch>
-        <Route path="/" exact component={AsyncHome} />
-        <Route path="/resume" component={AsyncResume} />
-        <Route path="/about" component={AsyncAbout} />
-        <Route component={fourOFour} />
-      </Switch>
-    </App>
-  </Router>
-</Provider>
+  <Provider store={store}>
+    <Router history={history}>
+      <App>
+        <Switch>
+          <Route path="/" exact component={AsyncHome} />
+          <Route path="/resume" component={AsyncResume} />
+          <Route path="/about" component={AsyncAbout} />
+          <Route component={fourOFour} />
+        </Switch>
+      </App>
+    </Router>
+  </Provider>
 );

@@ -16,10 +16,15 @@ class App extends Component {
     location: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
   }
-
   constructor(props) {
     super(props);
-    console.log(props);
+    if(window.location.search) {
+      import('parse-location').then(module => {
+        const location = module.default(window.location);
+        console.log(location.query);
+        this.props.history.push(location.query.p || '/');
+      });
+    }
   }
   render() {
     return (

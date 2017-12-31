@@ -1,7 +1,11 @@
 require('gh-pages').publish('build', {
   branch: 'master',
-  repo: 'https://github.com/kane-thornwyrd/kane-thornwyrd.github.com.git',
+  repo: 'git@github.com:kane-thornwyrd/kane-thornwyrd.github.com.git',
+  dotfiles: true,
 }, (err) => {
-  console.log(err);
-  console.log('DONE');
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('DONE !');
+  }
 });

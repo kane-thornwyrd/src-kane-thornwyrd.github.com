@@ -88,6 +88,7 @@ class Snake extends Component {
   }
 
   handleKey({ event }) {
+    event.preventDefault();
     const direction = event.nativeEvent.keyCode;
     const difference = Math.abs(this.state.direction - direction);
     if (D[direction] && difference !== 0 && difference !== 2) {
