@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div className="page">
         <Jumbotron>
-          <h1><img src={avatar} />Hello, I'm Kane !</h1>
+          <h1><img src={avatar} alt="" />Hello, I'm Kane !</h1>
           <p>Welcome, here you will fathom my dire sandbox creations.</p>
           <p>I hope you will enjoy you stay,
           and if by any means you would like to get in touch with me, all the required informations are just below:

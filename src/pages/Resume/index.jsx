@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class Resume extends Component {
+  constructor(props) {
+    super(props);
+    const { store } = props;
+    console.log(store.getState());
+  }
   render() {
     return (
       <div className="page">

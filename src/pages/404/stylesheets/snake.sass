@@ -1,0 +1,53 @@
+@import '../../../stylesheets/common/colors.sass'
+
+.snake-game
+  margin: auto
+  position: relative
+  text-align: center
+
+.snake-score
+  font-size: 20px
+  font-weight: normal
+  color: $bg2
+  position: relative
+  top: 0
+  height: 0
+  margin: 0
+
+.snake-board
+  margin: auto
+  background: $bg1
+  overflow: hidden
+  outline: none
+  box-shadow: inset 0 0 2em #000
+  width: 100%
+  min-height: 600px
+  width: 100%
+  display: flex
+  flex-flow: row wrap
+  .body-cell, .null-cell, .food-cell
+    width: 5%
+    height: 30px
+    box-shadow: inset 0 0 2em #000
+  .body-cell
+    box-shadow: 0 0 2em $fg2
+    background: radial-gradient(circle at center, $fg2 0, darken($fg2, 10%) 100%)
+    z-index: 1000
+  .food-cell
+    background: radial-gradient(circle at center, $bg2 0, darken($bg2, 25%) 100%)
+  &.game-over .body-cell
+    box-shadow: 0 0 2em #f00
+    background: radial-gradient(circle at center, red 0, darken(red, 25%) 100%)
+
+.snake-controls
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 1001
+  .btn
+    max-height: 3em
