@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import PageHeader from 'react-bootstrap/lib/PageHeader';
+
 import { loadableFactory } from '../../utils';
 
 const AsyncSnake = loadableFactory({importer: () => import("./snake")});
@@ -8,8 +10,7 @@ class About extends Component {
   render() {
     return (
       <div className="page">
-        <h1>404</h1>
-        <p>Sorry, the page does not exist (yet ?!)…</p>
+        <PageHeader>404 <small>Sorry, the page does not exist (yet ?!)…</small></PageHeader>
         <p>If you need to chill a bit, you can try to beat this game ↓</p>
         <AsyncSnake />
       </div>

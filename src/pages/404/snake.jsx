@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/lib/Button';
 
 import './stylesheets/snake.css';
 
-const timeRunnning = 0;
 const tr = true;
 const BODY = 1;
 const FOOD = 2;

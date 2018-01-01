@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import Headroom from 'react-headroom';
-
-import PageHeader from 'react-bootstrap/lib/PageHeader';
+import GithubCorner from 'react-github-corner';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
 
 class App extends Component {
   static propTypes = {
@@ -28,29 +28,60 @@ class App extends Component {
   }
   render() {
     return (
-      <Grid className="app">
-        <Headroom>
-          <Row className="title-header">
-            <Col xs={12} md={10} mdOffset={1}>
-              <PageHeader>Kane's forge</PageHeader>
+      <div className="app">
+        <Navbar inverse collapseOnSelect>
+        <GithubCorner
+          bannerColor="#158CBA"
+          octoColor="#000"
+          size={64}
+          direction="left"
+          svgStyle={{"mixBlendMode":"lighten"}}
+          href="https://github.com/kane-thornwyrd/src-kane-thornwyrd.github.com"
+        />
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Kane's forge</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+              <li role="presentation">
+              <NavLink id="home" className="menu-item btn btn-primary" to="/" exact>Home</NavLink>&nbsp;
+              </li>
+              <li role="presentation">
+              <NavLink id="resume" className="menu-item btn btn-primary" to="/resume">Resume</NavLink>&nbsp;
+              </li>
+              <li role="presentation">
+              <NavLink id="personal-projects" className="menu-item btn btn-primary" to="/personal-projects">Personal Projects</NavLink>&nbsp;
+              </li>
+              <li role="presentation">
+              <NavLink id="contact" className="menu-item btn btn-primary" activeClassName="active" to="/contact">Contact</NavLink>&nbsp;
+              </li>
+              <li role="presentation">
+              <NavLink id="this-demo" className="menu-item btn btn-primary" activeClassName="active" to="/this-demo">About this "site"</NavLink>&nbsp;
+              </li>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <Grid>
+          <Row className="viewport">
+            <Col xs={10} xsOffset={1}>
+              {this.props.children}
             </Col>
           </Row>
-          <Row>
-            <Col className="nav-bar">
-              <NavLink id="home" className="menu-item btn-primary" to="/" exact>Home</NavLink>&nbsp;
-              <NavLink id="resume" className="menu-item btn-primary" to="/resume">Resume</NavLink>&nbsp;
-              <NavLink id="personal-projects" className="menu-item btn-primary" to="/personal-projects">Personal Projects</NavLink>&nbsp;
-              <NavLink id="contact" className="menu-item btn-primary" activeClassName="active" to="/contact">Contact</NavLink>&nbsp;
-              <NavLink id="this-demo" className="menu-item btn-primary" activeClassName="active" to="/this-demo">About this "site"</NavLink>&nbsp;
+          <Row className="footer">
+            <Col xs={6}>
+              Author: Jean-cédric Thérond
+            </Col>
+            <Col xs={6}>
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                  <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" />
+                </a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
             </Col>
           </Row>
-        </Headroom>
-        <Row id="viewport">
-          <Col xs={12} md={10} mdOffset={1}>
-            {this.props.children}
-          </Col>
-        </Row>
-      </Grid>
+        </Grid>
+      </div>
     );
   }
 }

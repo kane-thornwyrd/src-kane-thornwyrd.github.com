@@ -73,6 +73,7 @@ addStyle(Button, 'kane-button-1');
 const AsyncHome = loadableFactory({importer: () => import("./pages/Home"), store});
 const AsyncResume = loadableFactory({importer: () => import("./pages/Resume"), store});
 const AsyncAbout = loadableFactory({importer: () => import("./pages/About"), store});
+const AsyncThisDemo = loadableFactory({importer: () => import("./pages/ThisDemo"), store});
 
 export default (props) => (
   <Provider store={store}>
@@ -82,6 +83,7 @@ export default (props) => (
           <Route path="/" exact component={AsyncHome} />
           <Route path="/resume" component={AsyncResume} />
           <Route path="/about" component={AsyncAbout} />
+          <Route path="/this-demo" component={AsyncThisDemo} />
           <Route component={fourOFour} />
         </Switch>
       </App>
