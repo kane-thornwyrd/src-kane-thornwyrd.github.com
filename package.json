@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.7",
+    "github-user-repos": "1.0.2",
     "history": "4.7.2",
     "loaders.css": "0.1.2",
     "lodash": "4.17.4",

@@ -128,10 +128,10 @@ class Resume extends Component {
   render() {
     return (
       <div className="page">
-        <blockquote className="blockquote">
-          <p className="mb-0" />
-        </blockquote>
         <PageHeader>Resume <small>also known as Curriculum Vitae</small></PageHeader>
+        <blockquote className="blockquote">
+          <p className="mb-0">Test</p>
+        </blockquote>
         <Timeline>
           {resume.map(this.generateTimelineEvent)}
         </Timeline>

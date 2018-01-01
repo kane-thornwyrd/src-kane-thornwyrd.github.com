@@ -13,6 +13,9 @@ class Home extends Component {
         <Jumbotron>
           <h1><img src={avatar} alt="" />Hello, I'm Kane !</h1>
           <p>Welcome, here you will fathom my dire sandbox creations.</p>
+          <p>
+            And, yeah, if you ask me, I totally over-engineered this site, and I can do worst !
+          </p>
           <p>I hope you will enjoy you stay,
           and if by any means you would like to get in touch with me, all the required informations are just below:
           </p>

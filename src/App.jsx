@@ -40,7 +40,7 @@ class App extends Component {
         />
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Kane's forge</a>
+              <a href="?p=/" >Kane's forge</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
