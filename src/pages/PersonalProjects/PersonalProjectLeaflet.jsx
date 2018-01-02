@@ -7,7 +7,7 @@ class PersonalProjectLeaflet extends Component {
   displayPageButton() {
     if (this.props.homepage) {
       return (
-        <a href={this.props.homepage}>
+        <a href={`/${this.props.name}`} target="_blank">
           <Glyphicon glyph="home" />&nbsp;Homepage
         </a>
       );
@@ -16,7 +16,7 @@ class PersonalProjectLeaflet extends Component {
   displaySrcButton() {
     if (this.props.html_url) {
       return (
-        <a href={this.props.html_url}>
+        <a href={this.props.html_url} target="_blank">
           <Glyphicon glyph="book" />&nbsp;Source
         </a>
       );
