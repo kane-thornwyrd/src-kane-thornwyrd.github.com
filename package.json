@@ -39,10 +39,13 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "predeploy": "npm run build",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.js",
+    "commit": "git-cz"
   },
   "devDependencies": {
+    "commitizen": "2.9.6",
     "compass-importer": "0.4.1",
+    "cz-conventional-changelog": "2.1.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
@@ -51,5 +54,10 @@
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "4.1.2",
     "react-scripts": "1.0.17"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
